@@ -13,4 +13,4 @@ A few resources to get you started if this is your first Flutter project:
 
 Credits:
 - The app uses an icon downloaded from Icons8
-  - Illustration by Icons 8 from [Icons8]("https://icons8.com/")
+  - Illustration by Icons 8 from [Icons8](https://icons8.com/)
