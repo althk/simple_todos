@@ -54,6 +54,8 @@ void main() {
       expect(find.byType(ListView), findsOneWidget);
       expect(find.widgetWithText(ListTile, 'test todo 1'), findsOneWidget);
       expect(find.widgetWithText(ListTile, 'test todo 2'), findsOneWidget);
+      expect(find.byIcon(Icons.circle), findsNWidgets(2));
+      expect(find.byIcon(Icons.check_circle), findsNothing);
     });
 
     testWidgets('dismissing todos removes them from list view',
@@ -109,6 +111,19 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.widgetWithText(ListTile, 'test todo 1'), findsOneWidget);
+    });
+
+    testWidgets('clicking circle icon marks todo complete',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(createTodoListPage());
+      await addTodo(tester, 'test todo 1');
+      await addTodo(tester, 'test todo 2');
+
+      await tester.tap(find.byIcon(Icons.circle).first);
+      await tester.pumpAndSettle();
+
+      expect(find.byIcon(Icons.circle), findsOneWidget);
+      expect(find.byIcon(Icons.check_circle), findsOneWidget);
     });
   });
 }
