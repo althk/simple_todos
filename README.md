@@ -4,12 +4,19 @@ A super simple todo manager
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is my starting point to learn about various concepts in Flutter
+- state management
+- widget testing
+- best practices (prefer stateless widgets over stateful, do not cram everything into one build context, etc.)
+- designing clean UI elements
+- animations
+- etc...
 
-A few resources to get you started if this is your first Flutter project:
+A few resources for specific topics:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Flutter app testing codelab](https://codelabs.developers.google.com/codelabs/flutter-app-testing)
+- [Flutter testing cookbook](https://flutter.dev/docs/cookbook/testing)
+- [Provider for state management](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple)
 
 Credits:
 - The app uses an icon downloaded from Icons8
