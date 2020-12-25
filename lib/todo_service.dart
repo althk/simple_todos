@@ -14,8 +14,8 @@ class TodoService {
     _tagsFilter = [];
     _includeArchived = false;
     _includeCompleted = true;
+    _db.sink = _ctrl.sink;
     _ctrl.onListen = () {
-      _db.sink = _ctrl.sink;
       _refreshStream();
     };
   }
@@ -60,11 +60,16 @@ class TodoService {
 
   void archive(Todo todo) {
     _db.archiveTodo(todo.id);
-    //_refreshStream();
+    _refreshStream();
   }
 
   void update(Todo todo) {
     _db.updateTodo(todo);
     _refreshStream();
+  }
+
+  void dispose() {
+    _ctrl.close();
+    _ctrl.sink.close();
   }
 }

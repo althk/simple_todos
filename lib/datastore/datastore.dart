@@ -30,7 +30,7 @@ class InMemoryDb implements Datastore {
     Todo t = Todo()
       ..id = uuid.v4()
       ..todo = todo
-      ..tags = tags ?? []
+      ..tags = tags ?? <String>[]
       ..createdAt = DateTime.now();
     _todos.add(t);
     return t;
@@ -43,8 +43,10 @@ class InMemoryDb implements Datastore {
       bool includeArchived = false}) {
     anyTagsFilter = anyTagsFilter ?? [];
     var res = _todos
-        .where((t) => t.tags.any(
-            (tag) => anyTagsFilter.length == 0 || anyTagsFilter.contains(tag)))
+        .where((t) =>
+            t.tags.length == 0 ||
+            t.tags.any((tag) =>
+                anyTagsFilter.length == 0 || anyTagsFilter.contains(tag)))
         .where((t) => includeCompleted ? true : !t.completed)
         .where((t) => includeArchived ? true : !t.archived)
         .toList();
