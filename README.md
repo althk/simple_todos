@@ -10,7 +10,7 @@ This project is my starting point to learn about various concepts in Flutter
 - best practices (prefer stateless widgets over stateful, do not cram everything into one build context, etc.)
 - designing clean UI elements
 - animations
-- etc...
+- and the unknown unknowns...
 
 A few resources for specific topics:
 
